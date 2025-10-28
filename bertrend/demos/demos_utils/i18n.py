@@ -33,10 +33,10 @@ TRANSLATIONS = {
 }
 
 # Available languages
-LANGUAGES = {"fr": "Français", "en": "English"}
+LANGUAGES = {"fr": "Français", "en": "English", "zh": "中文"}
 
 # Default language
-DEFAULT_LANGUAGE = "en"
+DEFAULT_LANGUAGE = "zh"
 
 
 def set_default_internationalization_language(language: str) -> None:

@@ -306,6 +306,15 @@ def display_data_loading_component():
     min_date, max_date = st.session_state["initial_df"][TIMESTAMP_COLUMN].dt.date.agg(
         ["min", "max"]
     )
+    # 重置无效的widget状态
+    if "timeframe_slider" in st.session_state:
+        current_value = st.session_state["timeframe_slider"]
+        if current_value[0] < min_date or current_value[1] > max_date:
+            # 如果保存的状态超出当前数据范围，清除状态
+            del st.session_state["timeframe_slider"]
+            # 或者重置为有效值
+            # st.session_state["timeframe_slider"] = (min_date, max_date)
+
     register_widget("timeframe_slider")
     start_date, end_date = st.slider(
         translate("select_timeframe"),
