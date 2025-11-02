@@ -12,12 +12,15 @@ from bertrend import BERTREND_CONFIG, EMBEDDING_CONFIG
 
 stopwords_en_file = Path(__file__).parent.parent / "resources" / "stopwords-en.json"
 stopwords_fr_file = Path(__file__).parent.parent / "resources" / "stopwords-fr.json"
+stopwords_zh_file = Path(__file__).parent.parent / "resources" / "stopwords-zh.json"
 stopwords_rte_file = Path(__file__).parent.parent / "resources" / "stopwords-rte.json"
 common_ngrams_file = Path(__file__).parent.parent / "resources" / "common_ngrams.json"
 with open(stopwords_en_file, "r", encoding="utf-8") as file:
     ENGLISH_STOPWORDS = json.load(file)
 with open(stopwords_fr_file, "r", encoding="utf-8") as file:
     FRENCH_STOPWORDS = json.load(file)
+with open(stopwords_zh_file, "r", encoding="utf-8") as file:
+    CHINIESE_STOPWORDS = json.load(file)
 with open(stopwords_rte_file, "r", encoding="utf-8") as file:
     STOP_WORDS_RTE = json.load(file)
 with open(common_ngrams_file, "r", encoding="utf-8") as file:
@@ -50,6 +53,15 @@ FRENCH_EMBEDDING_MODELS = [
     "antoinelouis/biencoder-distilcamembert-mmarcoFR",
 ]
 
+CHINESE_EMBEDDING_MODELS = [
+    "BAAI/bge-base-zh",           # 基于 BERT-like Transformer
+    "BAAI/bge-large-zh",          # 基于更大的 Transformer
+    "BAAI/bge-small-zh",          # 基于轻量 Transformer
+    "moka-ai/m3e-base",           # 基于 RoBERTa-like Transformer
+    "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2", # 基于多语言 Transformer
+    "distiluse-base-multilingual-cased", # 基于多语言 Transformer 蒸馏
+]
+
 # MODEL REPRESENTATIONS
 MMR_REPRESENTATION_MODEL = "MaximalMarginalRelevance"
 KEYBERTINSPIRED_REPRESENTATION_MODEL = "KeyBERTInspired"
@@ -57,7 +69,7 @@ OPENAI_REPRESENTATION_MODEL = "OpenAI"
 
 # BERTopic Hyperparameters
 BERTOPIC_SERIALIZATION = "safetensors"  # or pickle
-LANGUAGES = ["French", "English"]
+LANGUAGES = ["French", "English", "中文"]
 REPRESENTATION_MODELS = [
     MMR_REPRESENTATION_MODEL,
     KEYBERTINSPIRED_REPRESENTATION_MODEL,

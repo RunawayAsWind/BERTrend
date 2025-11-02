@@ -10,8 +10,9 @@ from bertrend import LLM_CONFIG
 from bertrend.llm_utils.openai_client import OpenAI_Client
 from bertrend.topic_analysis.data_structure import TopicDescription
 from bertrend.topic_analysis.prompts import TOPIC_DESCRIPTION_PROMPT
-
-
+from bertrend.AIModule.AIModelChatgpt import AIModelChatgpt
+from bertrend.AIModule.AIModelDeepseek import AIModelDeepseek
+import json
 def get_topic_description(
     topic_representation: str,
     docs_text: str,
@@ -21,19 +22,36 @@ def get_topic_description(
     # Prepare the prompt
     prompt = TOPIC_DESCRIPTION_PROMPT[language_code]
     try:
-        client = OpenAI_Client(
-            api_key=LLM_CONFIG["api_key"],
-            base_url=LLM_CONFIG["base_url"],
-            model=LLM_CONFIG["model"],
+        # client = OpenAI_Client(
+        #     api_key=LLM_CONFIG["api_key"],
+        #     base_url=LLM_CONFIG["base_url"],
+        #     model=LLM_CONFIG["model"],
+        # )
+        # answer = client.parse(
+        #     response_format=TopicDescription,
+        #     user_prompt=prompt.format(
+        #         topic_representation=topic_representation,
+        #         docs_text=docs_text,
+        #     ),
+        # )
+        model = AIModelChatgpt(1.0)
+        conversation_history = []
+        userprompt = prompt.format(
+            topic_representation=topic_representation,
+            docs_text=docs_text,
         )
-        answer = client.parse(
-            response_format=TopicDescription,
-            user_prompt=prompt.format(
-                topic_representation=topic_representation,
-                docs_text=docs_text,
-            ),
-        )
-        return answer
+        bsuccess, reply = model.Chat(userprompt, conversation_history)
+        print(model.DebugInfo(0))
+        if bsuccess:
+            print(reply)
+            jsondata = json.loads(reply)
+            if "title" in reply and "description" in jsondata:
+                result = TopicDescription(
+                    title=jsondata["title"],
+                    description=jsondata["description"]
+                )
+                return result
+        return None
     except Exception as e:
         logger.error(f"Error calling OpenAI API: {e}")
         return None

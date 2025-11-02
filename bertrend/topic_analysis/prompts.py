@@ -70,7 +70,42 @@ Format de sortie (JSON strict ; aucun texte hors du JSON) :
 "description": "Votre description (~100 mots) ici."
 """
 
+TOPIC_DESCRIPTION_PROMPT_ZH = """
+您是主题分析专家。您的任务是为给定的主题生成清晰、易于理解的标题和详细描述。
+
+输入：
+- 主题表示：{topic_representation}
+- 上下文文档（可能包含摘录、关键词或摘要）：
+{docs_text}
+
+要求：
+1) 标题：
+   - 简洁（最多8个词）
+   - 信息丰富且具体
+   - 使用标题大小写
+   - 避免使用行话和流行语，除非上下文中出现
+
+2) 描述：
+   - 约100字（90-120字）
+   - 总结核心思想和范围
+   - 突出显示上下文中的关键主题、实体或重复出现的概念
+   - 避免从上下文中复制长段文字；应进行转述
+   - 保持中立、客观，避免推测
+   - 不要以通用短语开头，如"这个主题..."、"这个话题..."或"该主题..."、"该话题..."
+
+3) 风格与质量：
+   - 不要使用占位符，不要有额外评论
+   - 不要使用第一人称
+   - 不要提及提示或指令
+   - 直接以实质性内容开头（例如关键概念、范围或主张），不要使用元介绍
+
+输出格式（严格的JSON格式；JSON外不要有其他文本）：
+"title": "您的标题在这里",
+"description": "您的约100字描述在这里。"
+"""
+
 TOPIC_DESCRIPTION_PROMPT = {
     "en": TOPIC_DESCRIPTION_PROMPT_EN,
     "fr": TOPIC_DESCRIPTION_PROMPT_FR,
+    "zh": TOPIC_DESCRIPTION_PROMPT_ZH,
 }

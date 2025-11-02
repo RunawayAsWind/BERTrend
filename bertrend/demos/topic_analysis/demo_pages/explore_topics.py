@@ -287,9 +287,9 @@ def _display_topic_description(filtered_df: pd.DataFrame):
     """Display a human-readable description of the selected topic using a LLM."""
     with st.spinner(translate("generating_description")):
         language_code = (
-            "fr"
-            if SessionStateManager.get("internationalization_language") == "fr"
-            else "en"
+            "en" if SessionStateManager.get("internationalization_language") =="en" else
+            "fr" if SessionStateManager.get("internationalization_language") =="fr" else
+            "zh"
         )
         gpt_description = generate_topic_description(
             st.session_state["topic_model"],

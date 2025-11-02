@@ -24,6 +24,7 @@ from bertrend.config.parameters import (
     LANGUAGES,
     ENGLISH_EMBEDDING_MODELS,
     FRENCH_EMBEDDING_MODELS,
+    CHINESE_EMBEDDING_MODELS,
     REPRESENTATION_MODELS,
     MMR_REPRESENTATION_MODEL,
 )
@@ -48,7 +49,9 @@ def display_local_embeddings():
         on_change=save_widget_state,
     )
     embedding_models = (
-        ENGLISH_EMBEDDING_MODELS if language == "English" else FRENCH_EMBEDDING_MODELS
+        ENGLISH_EMBEDDING_MODELS if language == "English" else
+        FRENCH_EMBEDDING_MODELS if language == "French" else
+        CHINESE_EMBEDDING_MODELS  # 新增中文支持
     )
     st.selectbox(
         translate("embedding_model"),
