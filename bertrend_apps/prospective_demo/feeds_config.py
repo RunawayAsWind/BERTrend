@@ -78,7 +78,7 @@ def edit_feed_monitoring(config: dict | None = None):
             translate("feed_language_label"),
             selection_mode="single",
             options=LANGUAGES,
-            default=LANGUAGES[0] if provider == "google" else LANGUAGES[1],
+            default=LANGUAGES[2] if provider == "google" else LANGUAGES[1],
             format_func=lambda lang: translate(f"language_{lang.lower()}"),
             help=translate("feed_language_help"),
         )

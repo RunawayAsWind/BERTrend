@@ -2,7 +2,7 @@
 
 # Global parameters
 [global]
-language = "French"
+language = "Chinese"
 
 # BERTopic parameters: https://maartengr.github.io/BERTopic/api/bertopic.html#bertopic._bertopic.BERTopic.__init__
 [bertopic_model]

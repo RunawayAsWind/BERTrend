@@ -33,7 +33,7 @@ from bertrend.config.parameters import (
     OPENAI_NR_DOCS,
     MMR_REPRESENTATION_MODEL,
     OPENAI_REPRESENTATION_MODEL,
-    KEYBERTINSPIRED_REPRESENTATION_MODEL, CHINIESE_STOPWORDS,
+    KEYBERTINSPIRED_REPRESENTATION_MODEL, CHINESE_STOPWORDS,
 )
 
 
@@ -154,7 +154,7 @@ class BERTopicModel:
             stop_words = (
                 STOPWORDS if self.config["global"]["language"] == "French" else
                 ENGLISH_STOPWORDS if self.config["global"]["language"] == "English" else
-                CHINIESE_STOPWORDS
+                CHINESE_STOPWORDS
             )
             self.config["vectorizer_model"]["stop_words"] = stop_words
 
