@@ -86,7 +86,7 @@ def display_embedding_hyperparameters():
     with st.expander(translate("embedding_hyperparameters"), expanded=False):
         register_widget("embedding_service_type")
         if "embedding_service_type" not in st.session_state:
-            st.session_state["embedding_service_type"] = "remote"
+            st.session_state["embedding_service_type"] = "local"
         st.segmented_control(
             translate("embedding_service"),
             selection_mode="single",

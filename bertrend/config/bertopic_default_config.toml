@@ -14,16 +14,16 @@ zeroshot_min_similarity = 0
 
 # UMAP parameters: https://umap-learn.readthedocs.io/en/latest/api.html
 [umap_model]
-n_neighbors = 5
-n_components = 5
+n_neighbors = 3
+n_components = 3
 min_dist = 0.0
 metric = "cosine"
 random_state = 42
 
 # HDBSCAN parameters: https://hdbscan.readthedocs.io/en/latest/api.html
 [hdbscan_model]
-min_cluster_size = 5
-min_samples = 5
+min_cluster_size = 2
+min_samples = 1
 metric = "euclidean"
 cluster_selection_method = "eom"
 prediction_data = true
@@ -32,7 +32,7 @@ prediction_data = true
 [vectorizer_model]
 ngram_range = [1, 2]
 stop_words = true # If true, will check `language` parameter and load associated stopwords file
-min_df = 2
+min_df = 1
 
 # ClassTfidfTransformer: https://maartengr.github.io/BERTopic/api/ctfidf.html
 [ctfidf_model]

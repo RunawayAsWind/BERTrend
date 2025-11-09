@@ -69,7 +69,7 @@ OPENAI_REPRESENTATION_MODEL = "OpenAI"
 
 # BERTopic Hyperparameters
 BERTOPIC_SERIALIZATION = "safetensors"  # or pickle
-LANGUAGES = ["French", "English", "中文"]
+LANGUAGES = ["中文", "French", "English"]
 REPRESENTATION_MODELS = [
     MMR_REPRESENTATION_MODEL,
     KEYBERTINSPIRED_REPRESENTATION_MODEL,

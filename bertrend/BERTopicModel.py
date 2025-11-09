@@ -265,6 +265,7 @@ class BERTopicModel:
             logger.debug("\tInitializing BERTopic model")
 
             topic_model = BERTopic(
+                language=self.config["global"]["language"],
                 embedding_model=embedding_model,
                 umap_model=self.umap_model,
                 hdbscan_model=self.hdbscan_model,

@@ -120,7 +120,7 @@ def _load_files(
         try:
             df = load_data(
                 file_path,
-                SessionStateManager.get("language", "French"),
+                SessionStateManager.get("language", "Chinese"),
             )
         except DataLoadingError as dle:
             st.warning(
