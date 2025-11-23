@@ -14,9 +14,9 @@ zeroshot_min_similarity = 0
 
 # UMAP parameters: https://umap-learn.readthedocs.io/en/latest/api.html
 [umap_model]
-n_neighbors = 3
-n_components = 3
-min_dist = 0.0
+n_neighbors = 2
+n_components = 5
+min_dist = 0.1
 metric = "cosine"
 random_state = 42
 
@@ -25,7 +25,7 @@ random_state = 42
 min_cluster_size = 2
 min_samples = 1
 metric = "euclidean"
-cluster_selection_method = "eom"
+cluster_selection_method = "leaf"
 prediction_data = true
 
 # CountVectorizer: https://scikit-learn.org/1.5/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html

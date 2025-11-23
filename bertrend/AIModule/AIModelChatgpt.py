@@ -12,6 +12,9 @@ class AIModelChatgpt(AIModelInterface):
         #     project='proj_cjfFF4QtW13i7QdmKFhZiMbU',
         #     api_key='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'
         # )
+        # https://gptsapi.net/api
+        # 19828459613@163.com
+        # Jin6wan5er42!
         self.client = OpenAI(
             base_url="https://api.gptsapi.net/v1",
             api_key='sk-SMp2087212ab056c2adbff15230bdc4460063fa6f16ShXev'

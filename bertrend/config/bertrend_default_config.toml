@@ -8,7 +8,7 @@
 # Data split settings
 granularity = 2
 # Merge model settings
-min_similarity = 0.7
+min_similarity = 0.9
 # Signal popularity settings
 decay_factor = 0.01
 decay_power = 2
