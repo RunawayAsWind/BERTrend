@@ -19,6 +19,13 @@ class AIModelChatgpt(AIModelInterface):
             base_url="https://api.gptsapi.net/v1",
             api_key='sk-SMp2087212ab056c2adbff15230bdc4460063fa6f16ShXev'
         )
+        # https://jiekou.ai/
+        # 1016055781@qq.com
+        # jin6wan5er4!
+        self.client = OpenAI(
+            base_url="https://api.jiekou.ai/openai",
+            api_key='sk_6gmHygfYKBeMNecvS1s0VuKC0S9w6cfoKwZ2fQsm3wE'
+        )
         print("[AIModelChatgpt::__init__] modelslist:", self.client.models.list())
 
     def Chat(self, userinput: str, conversation_history: list):
