@@ -15,10 +15,10 @@ class AIModelChatgpt(AIModelInterface):
         # https://gptsapi.net/api
         # 19828459613@163.com
         # Jin6wan5er42!
-        self.client = OpenAI(
-            base_url="https://api.gptsapi.net/v1",
-            api_key='sk-SMp2087212ab056c2adbff15230bdc4460063fa6f16ShXev'
-        )
+        # self.client = OpenAI(
+        #     base_url="https://api.gptsapi.net/v1",
+        #     api_key='sk-SMp2087212ab056c2adbff15230bdc4460063fa6f16ShXev'
+        # )
         # https://jiekou.ai/
         # 1016055781@qq.com
         # jin6wan5er4!
